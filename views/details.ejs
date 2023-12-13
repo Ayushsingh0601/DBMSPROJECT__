@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data from Tables</title>
+  </head>
+  <body>
+    <h1>Data from Tables</h1>
+
+    <% tableData.forEach((table) => { %>
+    <h2><%= table.tableName %></h2>
+    <table border="1">
+      <thead>
+        <tr>
+          <% Object.keys(table.data[0]).forEach((columnName) => { %>
+          <th><%= columnName %></th>
+          <% }); %>
+        </tr>
+      </thead>
+      <tbody>
+        <% table.data.forEach((row) => { %>
+        <tr>
+          <% Object.values(row).forEach((value) => { %>
+          <td><%= value %></td>
+          <% }); %>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <% }); %>
+  </body>
+</html>
